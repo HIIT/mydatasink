@@ -1,5 +1,5 @@
 # Getting started
-If you want to use the code then continue, if not just goto [***DataOperator***](https://github.com/dhrproject/mydataoperator)
+If you want to use the code then continue, if not, just goto [***DataOperator***](https://github.com/dhrproject/mydataoperator)
 for more information. You can use the [***Docker Image***](https://hub.docker.com/r/dhrpoc/dhr/) to setup a demo environment.
 
 You can use the demo account for all code related stuff.

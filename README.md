@@ -5,9 +5,6 @@
 This is part of MyData Architecture. This repo includes both backend and frontend for DataSink. 
 For more detail, please goto [***DataOperator***](https://github.com/dhrproject/mydataoperator)
 
-## API Documents
-
-
 ## Repository structure
 ```
 .
@@ -49,7 +46,7 @@ For more detail, please goto [***DataOperator***](https://github.com/dhrproject/
 │   └── test                                scripts for test
 │       ├── testLocal.py
 │       └── testRemote.py
-│   DataSink-UI                             UI
+├── DataSink-UI                             UI
 │   ├── index.html
 │   ├── js
 │   │   ├── demo
@@ -67,11 +64,14 @@ For more detail, please goto [***DataOperator***](https://github.com/dhrproject/
 └── Doc
     └── README.md
 ```
+
+## API Documents
+
 ## Support / Contact 
 Contact person: Chen Xin <dbchenxin@gmail.com>
 
 ## Copying and License
-
+This code is licensed under MIT
 
 
 

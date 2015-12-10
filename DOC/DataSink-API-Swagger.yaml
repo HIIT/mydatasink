@@ -1,0 +1,563 @@
+swagger: '2.0'
+info:
+  title:     DataSink API Document
+  description: |
+    There are two types of API, UI is used only for datasink, MyData is part of MyData API.
+    
+    **Instructions:**
+      > 
+      1. create new user with /user
+      2. use this new user account to get ext_id with /auth
+         you will get an ext_id like this ***ecc34df4d34f50d44d3a31cbf55660a7***
+      3. set Authenticate as ***Bearer ecc34df4d34f50d44d3a31cbf55660a7***
+      4. test others api
+      
+  version: 0.1.0
+  contact: 
+    name: Chen Xin
+    email: dbchenxin@gmail.com
+    url: https://github.com/okffi/mydata
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+ 
+  
+host: '178.62.194.218:8082'
+
+schemes:
+  - http
+  
+basePath: /api/v0.1
+
+produces:
+  - application/json
+  
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    
+paths:
+  /user:
+    post:
+      summary: create new user
+      description:  This endpoint will create a new user in datasink.
+      parameters:
+        - name: user 
+          in: body
+          description: create user object
+          required: true
+          schema:
+            type: object
+            properties:
+              username:
+                type: string
+                description: username
+              password:
+                type: string
+                description: password
+            required:
+              - username
+              - password
+      tags:
+        - UI
+      responses:
+        '400':
+          description: bad request
+          schema:
+            type: object
+            properties:
+              message: 
+                type: string
+                description: username and password can't be empty
+                
+        '201':
+          description: create success
+          schema:
+            type: object
+            properties:
+              message: 
+                type: string
+                description: created
+              
+        '409':
+          description: conflict error
+          schema:
+            type: object
+            properties:
+              message: 
+                type: string
+                description: user already exist!
+  
+  /auth:
+    post:
+      summary: get access token from datasink
+      description: This endpoint will give a token for access datasink api. All the following api should content this access code in header.
+      parameters:
+        - name: user 
+          in: body
+          description: username and password
+          required: true
+          schema:
+            type: object
+            properties:
+              username:
+                type: string
+                description: username
+              password:
+                type: string
+                description: password
+            required:
+              - username
+              - password
+      tags:
+        - UI
+      responses:
+        '200':
+          description: success
+          schema:
+            type: object
+            description: access token for datasink
+            properties:
+              ext_id: 
+                type: string
+                description: 7F3D06FA504191FAD682E8B123C13693
+
+                
+        '404':
+          description:  Bad Request
+          schema:
+            type: object
+            properties:
+              message: 
+                type: string
+                description: user does not exist
+
+                
+        '500':
+          description:  500 Bad Request
+          schema:
+            type: object
+            properties:
+              message: 
+                type: string
+                description: |
+                  - username or password missing
+                  - username or password can not be empty     
+ 
+  /user/{ext_id}:
+    get:
+      summary: get user info
+      description: |
+        This endpoint will return a json object which content user info.
+        set Authorization header like this 
+        > ***bearer 7F3D06FA504191FAD682E8B123C13693***
+        
+        There is a special endpoint “ /api/v0.1/user/me “ to compatible this api for datasource.
+      tags:
+        - UI
+      security:
+        - Bearer: []  
+      parameters:
+      - name: ext_id
+        type: string
+        in: path
+        description: User external ID
+        required: true
+        
+      - name: Authorization
+        type: string
+        in: header
+        description: access token for datasink
+        required: true
+
+      responses:
+        '200':
+          description:  success
+          schema:
+            type: object
+            properties:
+              gender: 
+                type: string
+                description: gender
+              mail:
+                type: string
+                description: User's email
+              name:
+                type: string
+                description: User name
+                
+        '404':
+          description:  Bad Request
+          schema:
+            type: object
+            properties:
+              message: 
+                type: string
+                description: user not found
+
+        '401':
+          description: Unauthorized
+          schema:
+            type: object
+            properties:
+              message: 
+                type: string
+                description: unauthorized user
+            
+        '500':
+          description: Internal Error
+          schema:
+            type: object
+            properties:
+              message: 
+                type: string
+                description: |
+                  - Authorization header was missing
+                  - Unsupported authorization type
+                  - Token missing
+                  - Token contains spaces
+                  - Token does not exist
+                  
+            
+    put:
+      summary: update user info
+      description: |
+        This endpoint will return a json object which content user info.
+        set Authorization header like this 
+        > ***bearer 7F3D06FA504191FAD682E8B123C13693***
+        
+        There is a special endpoint “ /api/v0.1/user/me “ to compatible this api for datasource.
+      tags:
+        - UI
+      security:
+        - Bearer: []          
+      parameters:
+      - name: ext_id
+        type: string
+        in: path
+        description: User external ID
+        required: true
+        
+      - name: Authorization
+        type: string
+        in: header
+        description: access token for datasink
+        required: true
+        
+      - name: userinfo 
+        in: body
+        description: update userinfo
+        required: true
+        schema:
+            type: object
+            description: post object to update user info
+            properties:
+              name:
+                type: string
+                description: username
+              email:
+                type: string
+                description: email
+              gender:
+                type: string
+                description: gender
+              address:
+                type: string
+                description: Home address
+                
+            required:
+              - name
+              - email
+              - gender
+              - address
+              
+      
+      responses:
+        '200':
+          description: 200 status message
+          schema:
+            type: object
+            properties:
+              message: 
+                type: string
+                description: updated
+
+                
+        '404':
+          description:  404 Bad Request
+          schema:
+            type: object
+            properties:
+              message: 
+                type: string
+                description: the user does not exist
+
+                
+        '401':
+          description: Unauthorized
+          schema:
+            type: object
+            properties:
+              message: 
+                type: string
+                description: unauthorized user
+            
+        '500':
+          description: Internal Error
+          schema:
+            type: object
+            properties:
+              message: 
+                type: string
+                description: |
+                  - Authorization header was missing
+                  - Unsupported authorization type
+                  - Token missing
+                  - Token contains spaces
+                  - Token does not exist
+            
+            
+  /users:
+    get:
+      summary: get users list
+      description: | 
+        For admin only, get all users.
+        
+        This endpoint will return a list of registed users.
+        
+        set Authorization header like this 
+        > ***bearer 7F3D06FA504191FAD682E8B123C13693***
+        
+      parameters:
+        - name: Authorization 
+          in: header
+          description: access token for datasink
+          required: true
+          type: string
+
+      security:
+        - Bearer: []  
+      tags:
+        - UI
+      responses:
+        '200':
+          description: success
+          schema:
+            type: object
+            properties:
+              users:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    address: 
+                      type: string
+                      description: Home address
+                    create time: 
+                      type: string
+                      description: Account create time //date-time
+                    email:
+                      type: string
+                      description: User's email
+                    ext_id:
+                      type: string
+                      description: External id             
+                    gender:
+                      type: string
+                      description: Gender                
+                    username:
+                      type: string
+                      description: User name
+        
+        '401':
+          description: Unauthorized
+          schema:
+            type: object
+            properties:
+              message: 
+                type: string
+                description: unauthorized user
+            
+        '500':
+          description: Internal Error
+          schema:
+            type: object
+            properties:
+              message: 
+                type: string
+                description: |
+                  - Authorization header was missing
+                  - Unsupported authorization type
+                  - Token missing
+                  - Token contains spaces
+                  - Token does not exist
+            
+
+                
+
+  /contract:
+    get:
+      summary: send contract to DataOperator
+      description: DataOperator request this endpoint and get contract from DataSink.
+      tags:
+        - MyData
+      security:
+        - Bearer: [] 
+      parameters:
+        - name: Authorization
+          type: string
+          in: header
+          description: access token for datasink
+          required: true
+        
+
+      responses:
+        '200':
+          description: success
+          schema:
+            type: object
+            properties:
+              actor_id:
+                type: string
+                description: Globally unique ID used to identify MyData actor (service) globally
+              endpoint_uri:
+                type: string
+                description: http://www.example.com/resource
+              user_id:
+                type: string
+                description: Local identifier of the Account Owner at the sink or source service.
+              status:
+                type: string
+                description: one of [active/passive/revoked]
+              created_at:
+                type: string
+                description: contract create time //date-time
+              role:
+                type: string
+                description: one of [Sink/Source/Both]
+              legal_role:
+                type: string
+                description: one of [controller/processor]
+              contract_terms:
+                type: string
+                description: contract terms
+                
+              data_type:
+                type: array
+                description: Food,Pharmacy,Fitness,Health,Finance,Insurance
+                items:
+                  type: string
+
+              intendet_use:
+                type: array
+                description: free,comm-sell,com-keep,annon-research
+                items:
+                  type: string
+                  
+              validity_period:
+                type: array
+                description: auto_renew,valid_until
+                items:
+                  type: string                  
+        '404':
+          description:  Bad Request
+          schema:
+            type: object
+            properties:
+              message: 
+                type: string
+                description: User not exist!
+            
+  /receipt:
+    post:
+      summary: get consent from DataOperator
+      description: get consent from DataOperator
+      tags:
+        - MyData
+      parameters:
+        - name: receipt 
+          in: body
+          description: consent receipt
+          required: true
+          schema:
+              $ref: '#/definitions/ConsentReceipt'
+
+      responses:
+        '201':
+          description: success
+          schema:
+            type: object
+            properties:
+                message:
+                  type: string
+                  description: created
+                  
+        '409':
+          description:  Bad Request
+          schema:
+            type: object
+            properties:
+              message: 
+                type: string
+                description: Receipt already exist!                          
+                
+definitions:
+
+          
+  ConsentReceipt:
+      type: object
+      description: post object to deliever consent receipt
+      properties:
+        rpt:
+          type: string
+          description: rpt from DataOperator
+        consentReceipt:
+          type: object
+          description: consent receipt
+          properties:
+              account_id:
+                type: string
+                description: external id for this user
+              rs_id:
+                type: string
+                description: resource id from DataOperator
+              consent_summary:
+                type: object
+                properties:
+                  data_source:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        description: DataSource name
+                      description:
+                        type: string
+                        description: DataSource description
+                  data:
+                    type: array
+                    items:
+                      type: string
+                      description: categories
+                  data_sink:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        description: DataSink name
+                      description:
+                        type: string
+                        description: DataSink description
+              data_usage_license:
+                type: string
+                description: license id
+              consent_receipt_id:
+                type: string
+                description: consent receipt id
+              authorization_status:
+                type: string
+                description: active/pause
+              service_contract_id:
+                type: string
+                description: service contract id                              
