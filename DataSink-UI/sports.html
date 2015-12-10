@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fit+ | Main View</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <span>
+                            <img alt="image" class="img-circle" src="img/profile_small.jpg"/>
+                        </span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear">
+                                <span class="block m-t-xs">
+                                    <strong class="font-bold" id="namebox">David Williams</strong>
+                                </span>
+                                <span class="text-muted text-xs block"> Level 5</span>
+                            </span>
+                        </a>
+
+                    </div>
+                    <div class="logo-element">
+                        Fit+
+                    </div>
+                </li>
+                <li>
+                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Sleeps</span></a>
+                </li>
+
+                <li class="active">
+                    <a href="sports.html"><i class="fa fa-area-chart"></i> <span class="nav-label">Sports</span></a>
+                </li>
+                <li>
+                    <a href="nutrition.html"><i class="fa fa-pie-chart"></i> <span
+                            class="nav-label">Nutrition</span> <span
+                            class="label label-primary pull-right">TODO</span> </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <span class="m-r-sm text-muted welcome-message">Welcome to Fit+ backgournd!</span>
+                    </li>
+                    <li>
+                        <a href="javascript:logout();">
+                            <i class="fa fa-sign-out"></i> Log out
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center m-t-lg">
+                        <h1>
+                            Welcome to Steps Tracker!
+                        </h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+
+                <div class="col-lg-6" id="map-container">
+                    <div class="ibox float-e-margins" style="height: 100%;">
+                        <div class="ibox-title">
+                            <h5>Map</h5>
+
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content" style="height: 100%;">
+                            <div class="flot-chart" style="height: 100%;">
+                                <div id="map" style="height: 100%;width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+
+
+                    <div class="ibox-content">
+
+                        <div class="col-lg-6">
+                            <div class="widget style1 navy-bg">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <i class="fa fa-cloud fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-8 text-right">
+                                        <span>Weather </span>
+
+                                        <h2 class="font-bold">26'C</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="widget style1 lazur-bg">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <i class="fa fa-envelope-o fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-8 text-right">
+                                        <span> New messages </span>
+
+                                        <h2 class="font-bold">0</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div>
+                                <span>Average Speed</span>
+                                <small class="pull-right">42.6 KM/H</small>
+                            </div>
+                            <div class="progress progress-small">
+                                <div style="width: 60%;" class="progress-bar"></div>
+                            </div>
+
+                            <div>
+                                <span>Average Altitude</span>
+                                <small class="pull-right">214.3 M</small>
+                            </div>
+                            <div class="progress progress-small">
+                                <div style="width: 70%;" class="progress-bar"></div>
+                            </div>
+
+                            <div>
+                                <span>Calorie Burned</span>
+                                <small class="pull-right">8700 CAL</small>
+                            </div>
+                            <div class="progress progress-small">
+                                <div style="width: 40%;" class="progress-bar"></div>
+                            </div>
+
+                            <div>
+                                <span>Heart Rate</span>
+                                <small class="pull-right">87 BPM</small>
+                            </div>
+                            <div class="progress progress-small">
+                                <div style="width: 90%;" class="progress-bar  progress-bar-danger"></div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+
+            </div>
+
+
+        </div>
+        <div class="footer">
+
+            <div>
+                <strong>Copyright</strong> Example Company &copy; 2014-2015
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Mainly scripts -->
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Flot -->
+<script src="js/plugins/flot/jquery.flot.js"></script>
+<script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+<script src="js/plugins/flot/jquery.flot.resize.js"></script>
+<script src="js/plugins/flot/jquery.flot.pie.js"></script>
+<script src="js/plugins/flot/jquery.flot.time.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="js/inspinia.js"></script>
+<script src="js/plugins/pace/pace.min.js"></script>
+
+<!-- Flot demo data -->
+<script src="js/demo/config.js"></script>
+<script src="js/demo/util.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        var token = getCookie('token');
+        if (token == undefined) {
+            window.location = 'login.html';
+        }
+        $("#namebox").replaceWith(getCookie('username'));
+        $("#map-container").css({"height": document.body.clientHeight / 2 + "px"});
+        //getResource();
+    });
+
+    function getResource() {
+        var token = getCookie('token');
+
+        var map, heatmap;
+
+
+        $.ajax({
+            type: "GET",
+            url: DSINK_RESOURCE_URI + "/2/Fitness.Diastolic-blood-pressure",
+            data: "",
+            dataType: "json",
+            contentType: "application/json",
+            beforeSend: function (request) {
+                request.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (data) {
+                console.log(data);
+
+                var newPoints = [];
+                console.log(data.data);
+
+                for (item in data.data) {
+                    newPoints.push(new google.maps.LatLng(data.data[item]['lat'], data.data[item]['lng']))
+                }
+
+                console.log(newPoints);
+                map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 14,
+                    center: {lat: data.center.lat, lng: data.center.lng},
+                    mapTypeId: google.maps.MapTypeId.SATELLITE
+                });
+
+                heatmap = new google.maps.visualization.HeatmapLayer({
+                    data: newPoints,
+                    map: map
+                });
+
+
+                return data;
+            },
+            error: function () {
+                alert('Please make a consent from DataOperator, then refresh the page!');
+            }
+        });
+
+    }
+
+</script>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC30QHrswEtCagaN3eguoX2RN-xO5QeJ0A&signed_in=true&libraries=visualization&callback=getResource">
+</script>
+</body>
+
+</html>

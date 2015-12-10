@@ -1,0 +1,392 @@
+[
+  {
+    "label": "Minutes-awake",
+    "data": [
+      {
+        "timestamp": 1365280511,
+        "value": 20
+      },
+      {
+        "timestamp": 1365194111,
+        "value": 40
+      },
+      {
+        "timestamp": 1365021311,
+        "value": 18
+      },
+      {
+        "timestamp": 1364934911,
+        "value": 37
+      },
+      {
+        "timestamp": 1364848511,
+        "value": 16
+      },
+      {
+        "timestamp": 1364762111,
+        "value": 89
+      },
+      {
+        "timestamp": 1364675711,
+        "value": 60
+      },
+      {
+        "timestamp": 1363466111,
+        "value": 20
+      },
+      {
+        "timestamp": 1363206911,
+        "value": 41
+      },
+      {
+        "timestamp": 1361565311,
+        "value": 35
+      },
+      {
+        "timestamp": 1361133311,
+        "value": 0
+      },
+      {
+        "timestamp": 1360960511,
+        "value": 13
+      },
+      {
+        "timestamp": 1360874111,
+        "value": 36
+      },
+      {
+        "timestamp": 1360528511,
+        "value": 5
+      },
+      {
+        "timestamp": 1360442111,
+        "value": 27
+      }
+    ]
+  },
+  {
+    "label": "Minutes-light-sleep",
+    "data": [
+      {
+        "timestamp": 1365280511,
+        "value": 263
+      },
+      {
+        "timestamp": 1365194111,
+        "value": 279
+      },
+      {
+        "timestamp": 1365021311,
+        "value": 298
+      },
+      {
+        "timestamp": 1364934911,
+        "value": 256
+      },
+      {
+        "timestamp": 1364848511,
+        "value": 199
+      },
+      {
+        "timestamp": 1364762111,
+        "value": 131
+      },
+      {
+        "timestamp": 1364675711,
+        "value": 236
+      },
+      {
+        "timestamp": 1363466111,
+        "value": 199
+      },
+      {
+        "timestamp": 1363206911,
+        "value": 114
+      },
+      {
+        "timestamp": 1361565311,
+        "value": 239
+      },
+      {
+        "timestamp": 1361133311,
+        "value": 3
+      },
+      {
+        "timestamp": 1360960511,
+        "value": 0
+      },
+      {
+        "timestamp": 1360874111,
+        "value": 388
+      },
+      {
+        "timestamp": 1360528511,
+        "value": 0
+      },
+      {
+        "timestamp": 1360442111,
+        "value": 0
+      }
+    ]
+  },
+  {
+    "label": "Minutes-asleep",
+    "data": [
+      {
+        "timestamp": 1365280511,
+        "value": 462
+      },
+      {
+        "timestamp": 1365194111,
+        "value": 411
+      },
+      {
+        "timestamp": 1365021311,
+        "value": 456
+      },
+      {
+        "timestamp": 1364934911,
+        "value": 400
+      },
+      {
+        "timestamp": 1364848511,
+        "value": 406
+      },
+      {
+        "timestamp": 1364762111,
+        "value": 223
+      },
+      {
+        "timestamp": 1364675711,
+        "value": 396
+      },
+      {
+        "timestamp": 1363466111,
+        "value": 433
+      },
+      {
+        "timestamp": 1363206911,
+        "value": 142
+      },
+      {
+        "timestamp": 1361565311,
+        "value": 522
+      },
+      {
+        "timestamp": 1361133311,
+        "value": 12
+      },
+      {
+        "timestamp": 1360960511,
+        "value": 0
+      },
+      {
+        "timestamp": 1360874111,
+        "value": 541
+      },
+      {
+        "timestamp": 1360528511,
+        "value": 0
+      },
+      {
+        "timestamp": 1360442111,
+        "value": 0
+      }
+    ]
+  },
+  {
+    "label": "Minutes-deep-sleep",
+    "data": [
+      {
+        "timestamp": 1365280511,
+        "value": 199
+      },
+      {
+        "timestamp": 1365194111,
+        "value": 132
+      },
+      {
+        "timestamp": 1365021311,
+        "value": 158
+      },
+      {
+        "timestamp": 1364934911,
+        "value": 144
+      },
+      {
+        "timestamp": 1364848511,
+        "value": 207
+      },
+      {
+        "timestamp": 1364762111,
+        "value": 92
+      },
+      {
+        "timestamp": 1364675711,
+        "value": 160
+      },
+      {
+        "timestamp": 1363466111,
+        "value": 234
+      },
+      {
+        "timestamp": 1363206911,
+        "value": 28
+      },
+      {
+        "timestamp": 1361565311,
+        "value": 283
+      },
+      {
+        "timestamp": 1361133311,
+        "value": 0
+      },
+      {
+        "timestamp": 1360960511,
+        "value": 0
+      },
+      {
+        "timestamp": 1360874111,
+        "value": 54
+      },
+      {
+        "timestamp": 1360528511,
+        "value": 0
+      },
+      {
+        "timestamp": 1360442111,
+        "value": 0
+      }
+    ]
+  },
+  {
+    "label": "Minutes-REM-sleep",
+    "data": [
+      {
+        "timestamp": 1365280511,
+        "value": 0
+      },
+      {
+        "timestamp": 1365194111,
+        "value": 0
+      },
+      {
+        "timestamp": 1365021311,
+        "value": 0
+      },
+      {
+        "timestamp": 1364934911,
+        "value": 0
+      },
+      {
+        "timestamp": 1364848511,
+        "value": 0
+      },
+      {
+        "timestamp": 1364762111,
+        "value": 0
+      },
+      {
+        "timestamp": 1364675711,
+        "value": 0
+      },
+      {
+        "timestamp": 1363466111,
+        "value": 0
+      },
+      {
+        "timestamp": 1363206911,
+        "value": 0
+      },
+      {
+        "timestamp": 1361565311,
+        "value": 0
+      },
+      {
+        "timestamp": 1361133311,
+        "value": 9
+      },
+      {
+        "timestamp": 1360960511,
+        "value": 0
+      },
+      {
+        "timestamp": 1360874111,
+        "value": 99
+      },
+      {
+        "timestamp": 1360528511,
+        "value": 0
+      },
+      {
+        "timestamp": 1360442111,
+        "value": 0
+      }
+    ]
+  },
+  {
+    "label": "Sleep-efficiency",
+    "data": [
+      {
+        "timestamp": 1365280511,
+        "value": 95.850622406639
+      },
+      {
+        "timestamp": 1365194111,
+        "value": 91.13082039911308
+      },
+      {
+        "timestamp": 1365021311,
+        "value": 96.20253164556962
+      },
+      {
+        "timestamp": 1364934911,
+        "value": 91.53318077803205
+      },
+      {
+        "timestamp": 1364848511,
+        "value": 96.2085308056872
+      },
+      {
+        "timestamp": 1364762111,
+        "value": 71.47435897435898
+      },
+      {
+        "timestamp": 1364675711,
+        "value": 86.8421052631579
+      },
+      {
+        "timestamp": 1363466111,
+        "value": 95.58498896247241
+      },
+      {
+        "timestamp": 1363206911,
+        "value": 77.59562841530054
+      },
+      {
+        "timestamp": 1361565311,
+        "value": 93.71633752244165
+      },
+      {
+        "timestamp": 1361133311,
+        "value": 100.0
+      },
+      {
+        "timestamp": 1360960511,
+        "value": 0.0
+      },
+      {
+        "timestamp": 1360874111,
+        "value": 93.59861591695503
+      },
+      {
+        "timestamp": 1360528511,
+        "value": 0.0
+      },
+      {
+        "timestamp": 1360442111,
+        "value": 0.0
+      }
+    ]
+  }
+]

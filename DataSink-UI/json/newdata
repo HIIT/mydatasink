@@ -1,0 +1,22 @@
+  {
+    "label": "Hiking",
+    "data": [
+      {
+        "activity_id": "20150915_090828_Hike",
+        "seq": "1",
+        "timestamp": "2015-09-15T09:08:28Z",
+        "alt_meters": "231.5",
+        "timestamp_as_epoch": "1442308108",
+        "lat": "67.604108",
+        "lng": "24.216727"
+      },
+      {
+        "activity_id": "20150915_090828_Hike",
+        "seq": "4",
+        "timestamp": "2015-09-15T09:13:43Z",
+        "alt_meters": "221.0",
+        "timestamp_as_epoch": "1442308423",
+        "lat": "67.604106",
+        "lng": "24.217191"
+      }
+}
