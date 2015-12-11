@@ -1,4 +1,4 @@
-# DATASINK
+# Data Sink
 
 This is a part of proof-of-concept implementation of [MyData Architecture](https://github.com/HIIT/mydata-stack). More information about the POC-implementation see [DataOperator](https://github.com/dhrproject/mydataoperator)
 
