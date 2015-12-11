@@ -32,8 +32,7 @@ This is a part of proof-of-concept implementation of [MyData Architecture](https
 │   │   ├── handler.py
 │   │   ├── logger.py
 │   │   └── setting.py
-│   ├── requirements.txt                    minimum requirements for DataSink
-│   ├── requirements_all.txt                maxmum requirements for DataSink
+│   ├── requirements.txt                    requirements for DataSink
 │   ├── run.py                              app entry point
 │   ├── scripts                             scripts for app
 │   │   ├── addUser.sh
