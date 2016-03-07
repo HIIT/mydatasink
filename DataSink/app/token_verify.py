@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 '''! Verify authorazation header which now is a external_user_id
 __title__ = 'token_verify'
+__author__ = 'Chen Xin'
 __mtime__ = '15/07/15'
 '''
 from functools import wraps
