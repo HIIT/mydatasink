@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 '''! Errors Dictionary:
 __title__ = 'errors.py'
-__author__ = 'Chen Xin'
-__email__ = 'dbchenxin@gmail.com'
 __mtime__ = '13/08/15'
 @description specific message and status code, when certain errors are encountered during a request.
 '''
