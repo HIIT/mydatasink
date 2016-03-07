@@ -22,7 +22,7 @@ info:
     url: https://opensource.org/licenses/MIT
  
   
-host: 'dhr-demo.csc.fi:20001'
+host: '127.0.0.1'
 
 schemes:
   - http
