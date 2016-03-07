@@ -20,7 +20,7 @@ from config import APP_GLOBAL_ID
 
 CONTRACT_TEMPLATE_DATASINK = {
     "actor_id": "4",
-    "endpoint_uri": "http://178.62.194.218/",
+    "endpoint_uri": "http://172.0.0.1/",
     "user_id": "Local identifier of the Account Owner at the sink or source service.",
     "status": "active",
     "created_at": "",
