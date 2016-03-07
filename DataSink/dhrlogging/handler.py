@@ -3,7 +3,6 @@
 import json
 from logging.handlers import HTTPHandler
 
-__author__ = 'Xiaoxiao.Xiong'
 
 class JsonHTTPHandler(HTTPHandler):
 
