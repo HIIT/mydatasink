@@ -33,30 +33,111 @@ var DSINK_RESOURCE_URI = DSINK_API_BASE_URI + '/resource';
  // copy config file to config = {} instead
  // This UI won't use it
 var config = {
+  "logging_server": {
+    "1": {
+      "name": "LoggingServer",
+      "desc": "The LoggingServer",
+      "network": {
+        "ip_public": "",
+        "ip_private": "",
+        "port_api": "",
+        "port_http": "",
+        "port_https": ""
+      }
+    }
+  },
   "operators": {
     "1": {
       "name": "DataOperator",
-      "desc": "The one and only DataOperator",
+      "desc": "The DataOperator",
       "network": {
-        "ip_public": "86.50.28.136",
+        "ip_public": "127.0.0.1",
         "ip_private": "127.0.0.1",
-        "port_api": "10000",
+        "port_api": "8080",
         "port_http": "80",
         "port_https": "443"
-      }
+      },
+      "user_accounts": [
+        {
+          "username": "testuser",
+          "password": "Hello",
+          "user_id": "1",
+          "status_id": "1",
+          "is_admin": "0"
+        },
+        {
+          "username": "Testeri",
+          "password": "Hello",
+          "user_id": "1",
+          "status_id": "1",
+          "is_admin": "0"
+        }
+      ],
+      "users": [
+        {
+          "gender": "",
+          "statuses_id": "1",
+          "firstName": "Test",
+          "lastName": "User",
+          "email": "test@user.com",
+          "address1": "Example road 45",
+          "address2": "",
+          "cities_id": "1",
+          "regions_id": "1",
+          "countries_id": "1",
+          "nationalities_id": "1",
+          "languages_id": "1",
+          "img_url_avatar": "http://127.0.0.1:80/assets/img/icons/mydata-avatar.png"
+        }
+      ],
+      "cities": [
+        {
+          "name": "Oulu",
+          "region_id": "1"
+        },
+        {
+          "name": "Tornio",
+          "region_id": "2"
+        }
+      ],
+      "regions": [
+        {
+          "name": "Pohjois-Pohjanmaa",
+          "region_id": "1"
+        },
+        {
+          "name": "Norrbotten",
+          "country_id": "2"
+        }
+      ],
+      "countries": [
+        {
+          "name": "Finland",
+          "region_id": "1"
+        },
+        {
+          "name": "Sweden",
+          "region_id": "2"
+        }
+      ],
+      "endpoints": [
+        {
+          "RPT_introspection_endpoint": "/verify_rpt"
+        }
+      ]
     }
   },
   "sources": {
     "1": {
-      "name": "DataSource-HealthAndFit",
-      "description":{
-        "desc_short":"DataSource based on Health and Fitness Data",
-        "desc_long":"Health is the level of functional or metabolic efficiency of a living organism. In humans it is the ability of individuals or communities to adapt and self-manage when facing physical, mental or social challenges. The World Health Organization (WHO) defined health in its broader sense in its 1948 constitution as a state of complete physical, mental, and social well-being and not merely the absence of disease or infirmity. (en.wikipedia.org/wiki/Health)",
-        "img_url_logo":"http://cc.oulu.fi/~jylikant/dhr/serviceIMGs/DataSource-Jogging-logo.png",
-        "img_url_banner":"http://cc.oulu.fi/~jylikant/dhr/serviceIMGs/DataSource-Jogging-banner-image.png",
-        "img_url_overview":"http://cc.oulu.fi/~jylikant/dhr/serviceIMGs/DataSource-Jogging-overview-image.png"
+      "name": "Running Free",
+      "description": {
+        "desc_long": "Running Free is lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer cursus eget urna eu semper. Suspendisse ac fringilla sapien. Aliquam id sem nulla. Phasellus lobortis dolor magna, sed scelerisque ex vehicula a. Integer non posuere turpis. Sed lobortis ante massa, sed dictum mi maximus id.",
+        "desc_short": "Running Free is lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dignissim.",
+        "img_url_banner": "http://127.0.0.1:80/assets/img/services/RunningFree.png",
+        "img_url_logo": "http://127.0.0.1:80/assets/img/services/RunningFree.png",
+        "img_url_overview": "http://127.0.0.1:80/assets/img/services/RunningFree.png"
       },
-      "categories":[
+      "categories": [
         "Health.Diastolic-Blood-Pressure",
         "Health.Systolic-Blood-Pressure",
         "Health.Heart-Rate",
@@ -79,67 +160,154 @@ var config = {
         "Fitness.Number-of-steps",
         "Fitness.Soft-exercise"
       ],
-      "labels":[
+      "category_details": {
+        "Health.Diastolic-Blood-Pressure": {
+          "unit": "mmHg"
+        },
+        "Health.Systolic-Blood-Pressure": {
+          "unit": "mmHg"
+        },
+        "Health.Heart-Rate": {
+          "unit": "bpm"
+        },
+        "Health.Sleep-efficiency": {
+          "unit": "%"
+        },
+        "Health.Minutes-deep-sleep": {
+          "unit": "minutes"
+        },
+        "Health.Awakenings-count": {
+          "unit": "count"
+        },
+        "Health.Minutes-asleep": {
+          "unit": "minutes"
+        },
+        "Health.Minutes-awake": {
+          "unit": "minutes"
+        },
+        "Health.Minutes-in-bed": {
+          "unit": "minutes"
+        },
+        "Health.Minutes-light-sleep": {
+          "unit": "minutes"
+        },
+        "Health.Minutes-REM-sleep": {
+          "unit": "minutes"
+        },
+        "Fitness.Weight": {
+          "unit": "kg"
+        },
+        "Fitness.Distance-travelled": {
+          "unit": "meters"
+        },
+        "Fitness.Calories-burned": {
+          "unit": "kcal"
+        },
+        "Fitness.Fat-free": {
+          "unit": "%"
+        },
+        "Fitness.Fat-mass": {
+          "unit": "kg"
+        },
+        "Fitness.Elevation-travelled": {
+          "unit": "meters"
+        },
+        "Fitness.Intense-exercise": {
+          "unit": "seconds"
+        },
+        "Fitness.Moderate-exercise": {
+          "unit": "seconds"
+        },
+        "Fitness.Number-of-steps": {
+          "unit": "count"
+        },
+        "Fitness.Soft-exercise": {
+          "unit": "seconds"
+        }
+      },
+      "labels": [
         "new",
         "popular"
       ],
-      "commonConsents":[
+      "commonConsents": [
         "fa-hdd-o",
         "fa-building",
         "fa-diamond",
         "fa-cc"
       ],
       "network": {
-        "ip_public": "178.62.244.150",
-        "ip_private": "10.133.57.249",
-        "port_api": "8081",
+        "ip_public": "127.0.0.1",
+        "ip_private": "127.0.0.1",
+        "port_api": "10001",
         "port_http": "80",
         "port_https": "443",
         "data_api": "/api/v0.1/resource"
-      }
+      },
+      "user_accounts": [
+        {
+          "username": "testuser",
+          "password": "Hello",
+          "email": "test@user.com"
+        }
+      ]
     },
     "2": {
-      "name": "DataSource-Location",
-      "description":{
-        "desc_short": "DataSource based on Location Data",
-        "desc_long": "The terms location and place in geography are used to identify a point or an area on the Earth's surface or elsewhere. The term location generally implies a higher degree of certainty than place, which often indicates an entity with an ambiguous boundary, relying more on human/social attributes of place identity and sense of place than on geometry. The distinction between space and place is considered a central concern of geography, and has been addressed by prominent scholars such as Yi-Fu Tuan and John Agnew. (en.wikipedia.org/wiki/Location_(geography))",
-        "img_url_logo": "http://cc.oulu.fi/~jylikant/dhr/serviceIMGs/DataSource-Location-logo.png",
-        "img_url_banner": "http://cc.oulu.fi/~jylikant/dhr/serviceIMGs/DataSource-Location-banner-image.png",
-        "img_url_overview": "http://cc.oulu.fi/~jylikant/dhr/serviceIMGs/DataSource-Location-overview-image.png"
+      "name": "MyLocation",
+      "description": {
+        "desc_long": "MyLocation is orem ipsum dolor sit amet, consectetur adipiscing elit. Integer cursus eget urna eu semper. Suspendisse ac fringilla sapien. Aliquam id sem nulla. Phasellus lobortis dolor magna, sed scelerisque ex vehicula a. Integer non posuere turpis. Sed lobortis ante massa, sed dictum mi maximus id.",
+        "desc_short": "MyLocation is orem ipsum dolor sit amet, consectetur adipiscing elit. Proin dignissim.",
+        "img_url_banner": "http://127.0.0.1:80/assets/img/services/myLocation.png",
+        "img_url_logo": "http://127.0.0.1:80/assets/img/services/myLocation.png",
+        "img_url_overview": "http://127.0.0.1:80/assets/img/services/myLocation.png"
       },
-      "categories":[
+      "categories": [
         "Fitness.Location.Biking",
         "Fitness.Location.Hiking"
-       ],
-      "labels":[
+      ],
+      "category_details": {
+        "Fitness.Location.Biking": {
+          "unit": "meters"
+        },
+        "Fitness.Location.Hiking": {
+          "unit": "meters"
+        }
+      },
+      "labels": [
         "new",
         "popular"
-       ],
-      "commonConsents":[
+      ],
+      "commonConsents": [
         "fa-hdd-o",
         "fa-building",
         "fa-diamond",
         "fa-cc"
       ],
       "network": {
-        "ip_public": "178.62.229.148",
-        "ip_private": "10.133.57.251",
-        "port_api": "8084",
+        "ip_public": "127.0.0.1",
+        "ip_private": "127.0.0.1",
+        "port_api": "10002",
         "port_http": "80",
         "port_https": "443",
         "data_api": "/api/v0.1/resource"
-      }
+      },
+      "user_accounts": [
+        {
+          "username": "testuser",
+          "password": "Hello",
+          "email": "test@user.com"
+        }
+      ]
     },
     "3": {
-      "name": "DataSource-Shopping",
-      "description":{
-        "desc_short": "DataSource based on Shopping Data",
-        "desc_long": "A retail or a shop is a business that presents a selection of goods and offers to trade or sell them to customers for money or other goods. Shopping is an activity in which a customer browses the available goods or services presented by one or more retailers with the intent to purchase a suitable selection of them. In some contexts it may be considered a leisure activity as well as an economic one. (en.wikipedia.org/wiki/Shopping)",
-        "img_url_logo": "http://cc.oulu.fi/~jylikant/dhr/serviceIMGs/DataSource-Shopping-logo.png",
-        "img_url_banner": "http://cc.oulu.fi/~jylikant/dhr/serviceIMGs/DataSource-Shopping-banner-image.png",
-        "img_url_overview": "http://cc.oulu.fi/~jylikant/dhr/serviceIMGs/DataSource-Shopping-overview-image.png"
+      "name": "Sesko",
+      "description": {
+        "desc_long": "Sesko is lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer cursus eget urna eu semper. Suspendisse ac fringilla sapien. Aliquam id sem nulla. Phasellus lobortis dolor magna, sed scelerisque ex vehicula a. Integer non posuere turpis. Sed lobortis ante massa, sed dictum mi maximus id.",
+        "desc_short": "Sesko is lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dignissim.",
+        "img_url_banner": "http://127.0.0.1:80/assets/img/services/sesko-logo.png",
+        "img_url_logo": "http://127.0.0.1:80/assets/img/services/sesko-logo.png",
+        "img_url_overview": "http://127.0.0.1:80/assets/img/services/sesko-logo.png"
       },
-      "categories":[
+      "categories": [
         "Shopping.Consumer-goods.Adhesives",
         "Shopping.Consumer-goods.Batteries",
         "Shopping.Consumer-goods.Beauty.Cosmetics-line",
@@ -152,7 +320,7 @@ var config = {
         "Shopping.Consumer-goods.Book-supplies",
         "Shopping.Consumer-goods.Bottle-envelopes",
         "Shopping.Consumer-goods.Bottle-Returns",
-        "Shopping.Consumer-goods.CleaningMachine",
+        "Shopping.Consumer-goods.Cleaning-Machine",
         "Shopping.Consumer-goods.Cleaning-Supplies",
         "Shopping.Consumer-goods.Clothes.Ladies.Cloth-sweaters",
         "Shopping.Consumer-goods.Clothes.Ladies.Dresses",
@@ -162,12 +330,12 @@ var config = {
         "Shopping.Consumer-goods.Clothes.Ladies.Socks-And-Tights",
         "Shopping.Consumer-goods.Clothes.Ladies.Trousers",
         "Shopping.Consumer-goods.Clothes.Ladies.Underwear",
-        "Shopping.Consumer-goods.Clothes.MenHeaddress",
-        "Shopping.Consumer-goods.Clothes.MenKnitwear",
-        "Shopping.Consumer-goods.Clothes.MenOther-accessories",
-        "Shopping.Consumer-goods.Clothes.MenShirts",
-        "Shopping.Consumer-goods.Clothes.MenSocks",
-        "Shopping.Consumer-goods.Clothes.MenTrousers",
+        "Shopping.Consumer-goods.Clothes.Men.Headdress",
+        "Shopping.Consumer-goods.Clothes.Men.Knitwear",
+        "Shopping.Consumer-goods.Clothes.Men.Other-accessories",
+        "Shopping.Consumer-goods.Clothes.Men.Shirts",
+        "Shopping.Consumer-goods.Clothes.Men.Socks",
+        "Shopping.Consumer-goods.Clothes.Men.Trousers",
         "Shopping.Consumer-goods.Clothes.Sportswear.Others",
         "Shopping.Consumer-goods.Clothes-Hangers",
         "Shopping.Consumer-goods.Cooking-utensils",
@@ -237,7 +405,7 @@ var config = {
         "Shopping.Groceries.Fruits.Other",
         "Shopping.Groceries.Fruits.Pears",
         "Shopping.Groceries.Fruits.Pome-fruits",
-        "Shopping.Groceries.FruitsBananas",
+        "Shopping.Groceries.Fruits.Bananas",
         "Shopping.Groceries.Garden-Berries-And-Rhubarb",
         "Shopping.Groceries.Grapes",
         "Shopping.Groceries.Health-Foods",
@@ -293,9 +461,9 @@ var config = {
         "Shopping.Groceries.Wines-And-Siders",
         "Shopping.Groceries.Yogurts",
         "Shopping.Ladies.Fashion-Showcase",
-        "Shopping.Ladies.OutdoorClothing",
+        "Shopping.Ladies.Outdoor.Clothing",
         "Shopping.Ladies.Shoes",
-        "Shopping.Ladies.Shoes-And-Bags.",
+        "Shopping.Ladies.Shoes-And-Bags",
         "Shopping.OtherService.OtherSundryConcessionSales",
         "Shopping.Restaurant.Buffet",
         "Shopping.Restaurant.Cold-Drinks",
@@ -305,61 +473,720 @@ var config = {
         "Shopping.Restaurant.Snacks",
         "Shopping.Restaurant.Sweet-Pastries",
         "Shopping.Sokos.Supplies"
-       ],
-      "labels":[
+      ],
+      "category_details": {
+        "Shopping.Consumer-goods.Adhesives": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Batteries": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Beauty.Cosmetics-line": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Beauty.Daily-cosmetics": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Beauty.Deodorants": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Beauty.Hair-Care": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Beauty.Skin-Treatment": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Beauty.Soap": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Bicycles-Parts-And-Accessories": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Book-supplies": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Bottle-envelopes": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Bottle-Returns": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Cleaning-Machine": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Cleaning-Supplies": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Clothes.Ladies.Cloth-sweaters": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Clothes.Ladies.Dresses": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Clothes.Ladies.Headdress": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Clothes.Ladies.Knitwear-And-Shirts": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Clothes.Ladies.Others": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Clothes.Ladies.Socks-And-Tights": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Clothes.Ladies.Trousers": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Clothes.Ladies.Underwear": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Clothes.Men.Headdress": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Clothes.Men.Knitwear": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Clothes.Men.Other-accessories": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Clothes.Men.Shirts": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Clothes.Men.Socks": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Clothes.Men.Trousers": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Clothes.Sportswear.Others": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Clothes-Hangers": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Cooking-utensils": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Cut-flowers": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Detergents": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Empty.Recordings": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Filter-Papers": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Fitness-sports-equipment": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Freezing-supplies": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Home-decorative-accessories": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.HWA": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Laundry-Detergent": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Light-Bilbs": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Magazines": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Mounting-accessories": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Nameplates": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Note-taking": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Oral-Care-Products": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Packaging-supplies": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Paper-Adhesives": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Recreational-equipment": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Shoe-accessories": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Sports.Nutrition": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Storage-Cases": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Tableware.Disposable": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Tableware.Porcelain": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Toys": {
+          "unit": "euro"
+        },
+        "Shopping.Consumer-goods.Toys.Baby": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Animal-Fats": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Bagery": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Bagery.Other": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Bagery.Prefabricated": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Baking-ingredients": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Baking-ingredients.Other": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Beer": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Beverage-Concentrates": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Candy.Bags": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Candy.Pastilles": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Canned-Food": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Canned-Food.Fruits-And-Berries": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Canned-Food.Vegetables": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Cereals-And-Muesli": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Cheece": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Chocolate-Confectionery": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Citrus-Fruits": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Cocoa": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Coffee": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Confectionery-Goods": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Cookies": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Cooking-Products": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Desserts": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Desserts.Milk-Based": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Dried.Fruits-And-Berries": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Dry-Bread": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Eggs": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Farinas": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Flakes": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Fresh.Bread": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Fresh.Fish": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Frozen-Foods": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Frozen-Foods.Fish-And-Shellfish": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Frozen-Foods.Fruits-Berries-And-Juices": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Frozen-Foods.Pastry": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Frozen-Foods.Potato": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Frozen-Foods.Vegetables": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Fruits.Apples": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Fruits.Other": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Fruits.Pears": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Fruits.Pome-fruits": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Fruits.Bananas": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Garden-Berries-And-Rhubarb": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Grapes": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Health-Foods": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Herring": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Honey": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Ice-Cream": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Juices": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Juices.Juice-Drinks": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Juices.Sweetened": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Marmalades": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Meat": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Meat.Beef": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Meat.Pork": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Meat.Poultry": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Mild-Cider-And-Mead": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Milk-And-Cream": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Mustard": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Nuts-And-Almonds": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Other-Cereal-Products": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Other-Sour-Milk-Products": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Pastes": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Pastry": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Pets.Food": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Potato": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Potato.Products": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Prefabricated-Broths": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Prefabricated-Meals": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Preserves": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Rice": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Root-Corps": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Rusks-And-Bagels": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Rye-Flours": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Sallads": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Salt": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Sauces-And-Mayonnaises": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Sausages": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Sausages.Slices": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Smoked.Fish": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Smoked.Meat": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Snacks": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Soft-Drinks": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Spices": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Spicy-Vegetables-And-Pod-Vegetables": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Sugars": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Sweeteners": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Tea": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Tex-Mex-Products": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Tissue-Papers": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Vegetable-oils": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Vegetables": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Wheat-Flours": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Vinegars": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Wines-And-Siders": {
+          "unit": "euro"
+        },
+        "Shopping.Groceries.Yogurts": {
+          "unit": "euro"
+        },
+        "Shopping.Ladies.Fashion-Showcase": {
+          "unit": "euro"
+        },
+        "Shopping.Ladies.Outdoor.Clothing": {
+          "unit": "euro"
+        },
+        "Shopping.Ladies.Shoes": {
+          "unit": "euro"
+        },
+        "Shopping.Ladies.Shoes-And-Bags": {
+          "unit": "euro"
+        },
+        "Shopping.OtherService.OtherSundryConcessionSales": {
+          "unit": "euro"
+        },
+        "Shopping.Restaurant.Buffet": {
+          "unit": "euro"
+        },
+        "Shopping.Restaurant.Cold-Drinks": {
+          "unit": "euro"
+        },
+        "Shopping.Restaurant.Fastfood": {
+          "unit": "euro"
+        },
+        "Shopping.Restaurant.Hot-Drinks": {
+          "unit": "euro"
+        },
+        "Shopping.Restaurant.Savory-Pastries": {
+          "unit": "euro"
+        },
+        "Shopping.Restaurant.Snacks": {
+          "unit": "euro"
+        },
+        "Shopping.Restaurant.Sweet-Pastries": {
+          "unit": "euro"
+        },
+        "Shopping.Sokos.Supplies": {
+          "unit": "euro"
+        }
+      },
+      "labels": [
         "new",
         "popular"
-       ],
-      "commonConsents":[
+      ],
+      "commonConsents": [
         "fa-hdd-o",
         "fa-building",
         "fa-diamond",
         "fa-cc"
       ],
       "network": {
-        "ip_public": "178.62.229.148",
-        "ip_private": "10.133.57.251",
-        "port_api": "8084",
+        "ip_public": "127.0.0.1",
+        "ip_private": "127.0.0.1",
+        "port_api": "10003",
         "port_http": "80",
         "port_https": "443",
         "data_api": "/api/v0.1/resource"
-      }
-    }
-  },
-  "sinks": {
-    "1": {
-      "name": "DataSink-OneAndOnly",
-      "description":{
-        "desc_short":"Computer or any other medium capable of receiving data",
-        "desc_long":"Able to receive and use Heath, Fitness and Shopping data",
-        "img_url_logo":"http://cc.oulu.fi/~jylikant/dhr/serviceIMGs/DataSink-OneAndOnly-logo.png",
-        "img_url_banner":"http://cc.oulu.fi/~jylikant/dhr/serviceIMGs/DataSink-OneAndOnly-banner-image.png",
-        "img_url_overview":"http://cc.oulu.fi/~jylikant/dhr/serviceIMGs/DataSink-OneAndOnly-overview-image.png"
       },
-      "categories":[
-           "Health",
-           "Fitness",
-           "Shopping"
-       ],
-      "labels":[
-           "new",
-           "popular"
-       ],
-      "commonConsents":[
+      "user_accounts": [
+        {
+          "username": "testuser",
+          "password": "Hello",
+          "email": "test@user.com"
+        }
+      ]
+    },
+    "4": {
+      "name": "SWH-Source",
+      "description": {
+        "desc_long": "Sport-Welness-Health Center is lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer cursus eget urna eu semper. Suspendisse ac fringilla sapien. Aliquam id sem nulla. Phasellus lobortis dolor magna, sed scelerisque ex vehicula a. Integer non posuere turpis. Sed lobortis ante massa, sed dictum mi maximus id.",
+        "desc_short": "Sport-Welness-Health Center is lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dignissim.",
+        "img_url_banner": "http://127.0.0.1:80/assets/img/services/sportWellnessHealth.png",
+        "img_url_logo": "http://127.0.0.1:80/assets/img/services/sportWellnessHealth.png",
+        "img_url_overview": "http://127.0.0.1:80/assets/img/services/sportWellnessHealth.png"
+      },
+ "categories": [
+        "Health.Diastolic-Blood-Pressure",
+        "Health.Systolic-Blood-Pressure",
+        "Health.Heart-Rate",
+        "Health.Sleep-efficiency",
+        "Health.Minutes-deep-sleep",
+        "Health.Awakenings-count",
+        "Health.Minutes-asleep",
+        "Health.Minutes-awake",
+        "Health.Minutes-in-bed",
+        "Health.Minutes-light-sleep",
+        "Health.Minutes-REM-sleep",
+        "Fitness.Weight"
+      ],
+      "category_details": {
+        "Health.Diastolic-Blood-Pressure": {
+          "unit": "mmHg"
+        },
+        "Health.Systolic-Blood-Pressure": {
+          "unit": "mmHg"
+        },
+        "Health.Heart-Rate": {
+          "unit": "bpm"
+        },
+        "Health.Sleep-efficiency": {
+          "unit": "%"
+        },
+        "Health.Minutes-deep-sleep": {
+          "unit": "minutes"
+        },
+        "Health.Awakenings-count": {
+          "unit": "count"
+        },
+        "Health.Minutes-asleep": {
+          "unit": "minutes"
+        },
+        "Health.Minutes-awake": {
+          "unit": "minutes"
+        },
+        "Health.Minutes-in-bed": {
+          "unit": "minutes"
+        },
+        "Health.Minutes-light-sleep": {
+          "unit": "minutes"
+        },
+        "Health.Minutes-REM-sleep": {
+          "unit": "minutes"
+        },
+        "Fitness.Weight": {
+          "unit": "kg"
+        }
+      },
+      "labels": [
+        "new",
+        "popular"
+      ],
+      "commonConsents": [
         "fa-hdd-o",
         "fa-building",
         "fa-diamond",
         "fa-cc"
       ],
       "network": {
-        "ip_public": "178.62.194.218",
-        "ip_private": "10.133.57.250",
-        "port_api": "8082",
+        "ip_public": "127.0.0.1",
+        "ip_private": "127.0.0.1",
+        "port_api": "10004",
         "port_http": "80",
-        "port_https": "443"
-      }
+        "port_https": "443",
+        "data_api": "/api/v0.1/resource"
+      },
+      "user_accounts": [
+        {
+          "username": "testuser",
+          "password": "Hello",
+          "email": "test@user.com"
+        }
+      ]
     }
-  }
+  },
+  "sinks": {
+    "5": {
+      "name": "PHR",
+      "description": {
+        "desc_long": "PHR is lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer cursus eget urna eu semper. Suspendisse ac fringilla sapien. Aliquam id sem nulla. Phasellus lobortis dolor magna, sed scelerisque ex vehicula a. Integer non posuere turpis. Sed lobortis ante massa, sed dictum mi maximus id.",
+        "desc_short": "PHR is lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dignissim.",
+        "img_url_banner": "http://127.0.0.1:80/assets/img/services/phr-logo.png",
+        "img_url_logo": "http://127.0.0.1:80/assets/img/services/phr-logo.png",
+        "img_url_overview": "http://127.0.0.1:80/assets/img/services/phr-logo.png"
+      },
+      "categories": [
+        "Food",
+        "Pharmacy",
+        "Fitness",
+        "Health",
+        "Finance",
+        "Insurance",
+        "Shopping"
+      ],
+      "labels": [
+        "new",
+        "popular"
+      ],
+      "commonConsents": [
+        "fa-hdd-o",
+        "fa-building",
+        "fa-diamond",
+        "fa-cc"
+      ],
+      "network": {
+        "ip_public": "127.0.0.1",
+        "ip_private": "127.0.0.1",
+        "port_api": "20001",
+        "port_http": "80",
+        "port_https": "443",
+        "data_api": "/api/v0.1/resource"
+      },
+      "user_accounts": [
+        {
+          "username": "testuser",
+          "password": "Hello",
+          "email": "test@user.com"
+        }
+      ]
+    },
+    "6": {
+      "name": "SWH-Sink",
+      "description": {
+        "desc_long": "Sport-Welness-Health Center is lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer cursus eget urna eu semper. Suspendisse ac fringilla sapien. Aliquam id sem nulla. Phasellus lobortis dolor magna, sed scelerisque ex vehicula a. Integer non posuere turpis. Sed lobortis ante massa, sed dictum mi maximus id.",
+        "desc_short": "Sport-Welness-Health Center is lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dignissim.",
+        "img_url_banner": "http://127.0.0.1:80/assets/img/services/sportWellnessHealth.png",
+        "img_url_logo": "http://127.0.0.1:80/assets/img/services/sportWellnessHealth.png",
+        "img_url_overview": "http://127.0.0.1:80/assets/img/services/sportWellnessHealth.png"
+      },
+      "categories": [
+        "Food",
+        "Pharmacy",
+        "Fitness",
+        "Health",
+        "Shopping"
+      ],
+      "labels": [
+        "new",
+        "popular"
+      ],
+      "commonConsents": [
+        "fa-hdd-o",
+        "fa-building",
+        "fa-diamond",
+        "fa-cc"
+      ],
+      "network": {
+        "ip_public": "127.0.0.1",
+        "ip_private": "127.0.0.1",
+        "port_api": "20003",
+        "port_http": "80",
+        "port_https": "443",
+        "data_api": "/api/v0.1/resource"
+      },
+      "user_accounts": [
+        {
+          "username": "testuser",
+          "password": "Hello",
+          "email": "test@user.com"
+        }
+      ]
+    }
+  },
+  "data_licenses": [
+    "Research-use.Internal-use",
+    "Research-use.External-partners",
+    "Research-use.Anonymizes-data",
+    "Development-use.Internal-use",
+    "Development-use.External-partners",
+    "Sales-and-Marketing",
+    "Advertising",
+    "Marketing-Partners",
+    "Resale"
+  ],
+  "statuses": [
+    "active",
+    "paused",
+    "withdrawn"
+  ]
 };
-
-
