@@ -29,7 +29,7 @@ testuser = json.dumps({
     "password": "123456"
 })
 
-DSINK_API_BASE = 'http://178.62.194.218:8082/api/v0.1/'
+DSINK_API_BASE = 'http://127.0.0.1:8082/api/v0.1/'
 
 DSINK_API_REGISTER = DSINK_API_BASE + 'user'
 
