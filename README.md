@@ -59,13 +59,11 @@ This is a part of proof-of-concept implementation of [MyData Architecture](https
 │   └── sports.html
 └── Doc                                     API documantation
     ├── DataSink-API-Swagger.yaml
-    ├── DataSink-API-Swagger.pdf
     └── How to Config.md
 ```
 
 ## API Documents
 We use [Swagger.io](http://swagger.io/), so you can copy [```DOC/DataSink-API-Swagger.yaml```](https://github.com/dhrproject/mydatasink/blob/master/DOC/DataSink-API-Swagger.yaml) and paste it to [Swagger Editor](http://editor.swagger.io/) .
-Also, we provide a pdf version [```DOC/DataSink-API-Swagger.pdf```](https://github.com/dhrproject/mydatasink/blob/master/DOC/DataSink-API-Swagger.pdf). 
 
 ## Copying and License
 This code is licensed under MIT
