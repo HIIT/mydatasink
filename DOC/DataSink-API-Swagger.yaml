@@ -14,10 +14,10 @@ info:
       
   version: 0.1.0
   contact: 
-    url: https://github.com/dhrproject/mydataoperator
+    url: 'https://github.com/dhrproject/mydataoperator'
   license:
     name: MIT
-    url: https://opensource.org/licenses/MIT
+    url: 'https://opensource.org/licenses/MIT'
  
   
 host: '127.0.0.1'
