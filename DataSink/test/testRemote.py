@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 '''
 __title__ = ''
+__author__ = 'Chen Xin'
 __mtime__ = '05/10/15'
 '''
 
