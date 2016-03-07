@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 '''
 __title__ = ''
-__author__ = 'Chen Xin'
-__email__ = 'dbchenxin@gmail.com'
 __mtime__ = '22/09/15'
 '''
 from flask.ext.restful import Resource
