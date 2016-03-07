@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  title:     DataSink API Document
+  title: DataSink API Document
   description: |
     There are two types of API, UI is used only for datasink, MyData is part of MyData API.
     
@@ -14,8 +14,6 @@ info:
       
   version: 0.1.0
   contact: 
-    name: Chen Xin
-    email: dbchenxin@gmail.com
     url: https://github.com/okffi/mydata
   license:
     name: MIT
