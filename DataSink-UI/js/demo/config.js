@@ -2,7 +2,7 @@
  * Created by double on 02/09/15.
  */
 
-var DSINK_API_BASE_URI = 'http://dhr-demo.csc.fi:20001/api/v0.1';
+var DSINK_API_BASE_URI = 'http://127.0.0.1:20001/api/v0.1';
 
 var DSINK_REGISTER_URI = DSINK_API_BASE_URI + '/user';
 var DSINK_LOGIN_URI = DSINK_API_BASE_URI + '/auth';
@@ -10,7 +10,7 @@ var DSINK_RESOURCE_URI = DSINK_API_BASE_URI + '/resource';
 
 //
 
-//var CONFIG_URI = 'http://178.62.244.150:8080/config'
+//var CONFIG_URI = 'http://127.0.0.1:8080/config'
 //$.ajax({
 //                type: "GET",
 //                url: CONFIG_URI,
