@@ -5,6 +5,7 @@ import logging
 from dhrlogging.setting import LoggingConf
 from logging.config import dictConfig
 
+__author__ = 'Xiaoxiao.Xiong'
 
 dictConfig(LoggingConf)
 
