@@ -44,7 +44,7 @@ SQLALCHEMY_DATABASE_URI = 'mysql+mysqldb://'+MYSQL_USER+':'+MYSQL_PASS+'@'+MYSQL
 # Config File Address
 # ===============================================================
 # config file uri
-CONFIG_URI = 'http://178.62.244.150:8080/config'
+CONFIG_URI = 'http://127.0.0.1:8080/config'
 CONFIG_USER = 'testuser'
 CONFIG_PASS = 'Hello'
 
