@@ -168,7 +168,7 @@ logger.info("=========================================")
 NEW_CONSENT = {
     "consentReceipt": {
         "account_id": "762a47e8028a66bf02003d1f7111c933",
-        "rs_id": "http://178.62.229.148:8081/api/v0.1/resource/d242a33f-2435-43f5-92b4-e69f330daa57",
+        "rs_id": "http://127.0.0.1:8081/api/v0.1/resource/d242a33f-2435-43f5-92b4-e69f330daa57",
         "consent_summary": {
             "data_source": {
                 "name": "DataSource-HealthAndFit",
