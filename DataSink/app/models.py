@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 '''! DB models
 __title__ = ''
+__author__ = 'Chen Xin'
 __mtime__ = '02/06/15'
 '''
 import hashlib
