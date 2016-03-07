@@ -1,6 +1,7 @@
 #!/usr/bin/env python2.7
 # -*- coding: utf-8 -*-
 '''
+__author__ = 'Chen Xin'
 __mtime__ = '02/06/15'
 '''
 import json
